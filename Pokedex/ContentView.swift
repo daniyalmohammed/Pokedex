@@ -97,12 +97,12 @@ struct ContentView: View {
                                     Text(pokemon.name.capitalized)
                                         .font(.caption)
                                         .bold()
-                                        .foregroundColor(.black)
+                                        .foregroundColor(.white)
                                         .lineLimit(1)
                                         .truncationMode(.tail)
                                 }
                                 .padding()
-                                .background(Color.blue.opacity(1))
+                                .background(Color.blue.opacity(0.8))
                                 .cornerRadius(12)
                                 .shadow(radius: 5)
                             }
