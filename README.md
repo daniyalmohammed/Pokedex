@@ -1,4 +1,5 @@
 # Pokédex App
+![PokedexAppSelectedImage](https://github.com/user-attachments/assets/50aaa562-cc39-4ede-8c21-97da966524bf)
 
 This is a simple Pokédex app built with Swift and SwiftUI that uses the [PokeAPI](https://pokeapi.co/) to display a list of Pokémon. You can scroll through a grid of Pokémon, and when you tap on one, its image and name will appear at the top of the screen.
 
