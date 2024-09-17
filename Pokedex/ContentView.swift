@@ -71,28 +71,11 @@ struct ContentView: View {
                                 fetchPokemonDetails(for: pokemon)
                             }) {
                                 VStack {
-                                    AsyncImage(url: URL(string: getPokemonImageURL(from: pokemon.id))) { phase in
-                                        switch phase {
-                                        case .empty:
-                                            ProgressView()
-                                                .frame(width: 80, height: 80)
-                                        case .success(let image):
-                                            image
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 80, height: 80)
-                                                .background(Color.white)
-                                                .cornerRadius(12)
-                                                .shadow(radius: 5)
-                                        case .failure:
-                                            Image(systemName: "photo")
-                                                .resizable()
-                                                .scaledToFit()
-                                                .frame(width: 80, height: 80)
-                                        @unknown default:
-                                            EmptyView()
-                                        }
-                                    }
+                                    CachedImageView(imageUrl: getPokemonImageURL(from: pokemon.id))
+                                        .frame(width: 80, height: 80)
+                                        .background(Color.white)
+                                        .cornerRadius(12)
+                                        .shadow(radius: 5)
                                     
                                     Text(pokemon.name.capitalized)
                                         .font(.caption)
