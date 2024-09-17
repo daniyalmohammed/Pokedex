@@ -21,7 +21,7 @@ The design is bright and colorful, inspired by the Pokémon vibes. The backgroun
 ## Technical Decisions
 
 ### AsyncImage
-I went with `AsyncImage` for image loading because it’s built into SwiftUI and makes handling async image downloads easy. It automatically shows a loading indicator while fetching the image and handles failures with a placeholder image. Using `AsyncImage` keeps the code clean, and I don’t have to worry about manually managing network requests.
+Originally, I went with `AsyncImage` for image loading because it’s built into SwiftUI and makes handling async image downloads easy. It automatically shows a loading indicator while fetching the image and handles failures with a placeholder image. Using `AsyncImage` keeps the code clean, and I don’t have to worry about manually managing network requests. However, after noticing the image caching requiremnts, I decided to use my own image caching system.
 
 ### Image Caching
-For the grid images, I used a simple in-memory cache to avoid downloading the same images multiple times. This speeds up performance. I didn’t go with disk caching because, for this app, memory caching is sufficient and much easier to set up. Disk caching would have been overkill for the number of images I’m dealing with.
+For the grid images, I used a simple in-memory cache to avoid downloading the same images multiple times. This speeds up performance. I additionally added disk caching because there are lots of Pokemon images and in-memory cache can have its key value pairs evicted.
